@@ -426,6 +426,7 @@ body {
   margin: auto;
   text-align: center;
   height: 500px;
+  flex-wrap: wrap;
 }
 .gray h2 {
   color: #fff;
@@ -434,12 +435,23 @@ body {
   padding-bottom: 30px;
 }
 .gray ul {
-  width: 1085px;
   height: 100%;
   margin: auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  li {
+    padding: 0 30px;
+  }
+
+  @include media(">=320px") {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  @include media(">=1180px") {
+    width: 1085px;
+  }
 }
 .icon-logo-client-1 {
   font-size: 25px;
@@ -452,9 +464,6 @@ body {
 }
 .icon-logo-client-4 {
   font-size: 55px;
-}
-.icon-logo-client-5 {
-  font-size: 20px;
 }
 .icon-logo-client-6 {
   font-size: 60px;
@@ -476,9 +485,17 @@ select {
   display: block;
 }
 .main {
-  width: 970px;
   margin: 110px auto 0;
   font-family: "Roboto", sans-serif;
+  @include media(">=320px") {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: block;
+  }
+  @include media(">=1180px") {
+    width: 970px;
+  }
 }
 .main h1 {
   font-size: 25px;
@@ -514,12 +531,22 @@ select {
   margin-bottom: 20px;
 }
 .row-left-side {
-  width: 470px;
-  float: left;
+  @include media(">=1180px") {
+    float: left;
+    width: 470px;
+  }
 }
 .row-right-side {
-  width: 470px;
-  float: right;
+  @include media(">=1180px") {
+    float: right;
+    width: 470px;
+  }
+}
+.fix {
+  margin-top: 20px;
+  @include media(">=1180px") {
+    margin-top: 0;
+  }
 }
 .select-wrapper {
   position: relative;
@@ -568,11 +595,20 @@ select {
 .radio-wrapper input[type="radio"] {
   margin-left: 0;
 }
-.radio-wrapper label {
-  margin-right: 45px;
-  font-size: 14px;
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
+.radio-wrapper {
+  display: flex;
+  @include media(">=320px") {
+    flex-direction: column;
+  }
+  @include media(">=1180px") {
+    flex-direction: row;
+  }
+  label {
+    margin-right: 45px;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+  }
 }
 .custom-checkbox,
 .custom-checkbox-checked {
@@ -586,11 +622,9 @@ select {
 }
 .input-check {
   display: inline-block;
+  width: 100%;
 }
 
-.input-check-check {
-  float: right;
-}
 .custom-checkbox::after,
 .custom-checkbox-checked::after {
   content: "";
@@ -668,4 +702,10 @@ select {
   font-size: 13px;
   padding: 45px 0 0 65px;
   float: left;
+  @include media(">=320px") {
+    padding: 10px 0 0 15px;
+  }
+  @include media(">=740px") {
+    padding: 45px 0 0 65px;
+  }
 }
